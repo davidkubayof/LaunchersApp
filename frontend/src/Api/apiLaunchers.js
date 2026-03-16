@@ -25,3 +25,12 @@ export async function createLeunchers(leuncher) {
     }
     return await res.json()
 }
+export async function deletById(id) {
+    const res = await fetch(url + `/${id}`, {
+        method: 'DELETE'
+    })
+    if (!res.ok) {
+        return "faild to fetch"
+    }
+    return await res.json()
+}

@@ -21,13 +21,17 @@ export async function updateLauncher(req, res) {
     const { id } = req.params;
     const obj = req.body;
     if (!id) { return res.status(400).json('The field id is missing.') }
-    const launcher = await getLauncherD(id,obj)
+    const launcher = await getLauncherD(id, obj)
     res.json({ launcher })
 }
 export async function deleteLauncher(req, res) {
     const { id } = req.params;
     if (!id) { return res.status(400).json('The field id is missing.') }
+    console.log("ht5h");
+
     const launcher = await deleteLauncherD(id)
+    console.log(launcher);
+
     res.json({ launcher })
 }
 

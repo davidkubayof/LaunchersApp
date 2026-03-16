@@ -11,8 +11,6 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-////69b7cd9047ada7cd6ede0805
-// roterLaunchers
 app.use('/api', roterLaunchers)
 
 app.listen(process.env.PORT, () => {

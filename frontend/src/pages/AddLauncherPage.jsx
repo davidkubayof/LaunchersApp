@@ -9,8 +9,8 @@ export default function AddLauncherPage() {
     latitude: "",
     longitude: ""
   })
-  function handleSumbite() {
-    console.log(createLeunchers(data))
+  async function handleSumbite() {
+    console.log(await createLeunchers(data))
   }
   return (
     <>

@@ -27,5 +27,5 @@ export async function deleteLauncherD(id) {
     if (!ObjectId.isValid(id)) {
         throw new Error('Invalid ObjectId format');
     }
-    return await collection('launchers').deleteOne({ _id: new ObjectId(id) });
+    return await db.collection('launchers').deleteOne({ _id: new ObjectId(id)});
 }
