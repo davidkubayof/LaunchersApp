@@ -16,6 +16,7 @@ app.use(cors())
 app.use('/api/auth', roterAuth)
 app.use('/api', authenticateJWT, roterLaunchers)
 
+
 app.listen(process.env.PORT, () => {
     console.log(`server run on http://localhost:${process.env.PORT}`);
 })
