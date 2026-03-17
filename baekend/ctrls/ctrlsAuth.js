@@ -2,10 +2,12 @@ import { createUserD, deleteUserD, findUserD, getUserD, updateUserD } from "../D
 import jwt from 'jsonwebtoken'
 
 export async function getUser(req, res) {
-    const { id } = req.params
+    const { id } = req.user
     if (!id) { return res.status(400).json('The field id is missing.') }
     const user = await getUserD(id)
-    res.json({ user })
+    console.log(user);
+    
+    res.json( user )
 }
 export async function createUser(req, res) {
     const obj = req.body;

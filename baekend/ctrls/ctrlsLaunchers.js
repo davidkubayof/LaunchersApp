@@ -26,11 +26,7 @@ export async function updateLauncher(req, res) {
 export async function deleteLauncher(req, res) {
     const { id } = req.params;
     if (!id) { return res.status(400).json('The field id is missing.') }
-    console.log("ht5h");
-
     const launcher = await deleteLauncherD(id)
-    console.log(launcher);
-
     res.json({ launcher })
 }
 

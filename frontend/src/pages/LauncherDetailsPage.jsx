@@ -1,6 +1,7 @@
 import { useParams } from 'react-router'
 import { deletById, getById } from '../Api/apiLaunchers'
 import { useEffect, useState } from 'react'
+import Nav from '../componnet/Nav'
 
 export default function LauncherDetailsPage() {
     const { id } = useParams()
@@ -20,6 +21,7 @@ export default function LauncherDetailsPage() {
     return (
         <>
             <div>LauncherDetailsPage</div>
+            <Nav/>
             <div>id: {leuncher._id}</div>
             <div>name: {leuncher.name}</div>
             <div>city: {leuncher.city}</div>

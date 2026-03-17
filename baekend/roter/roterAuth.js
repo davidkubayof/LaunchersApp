@@ -6,7 +6,7 @@ import { isValidRole } from "../middlwer/IsValidRole.js";
 
 const roter = Router()
 
-roter.get('/getUser', authenticateJWT, isValidRole, getUser)
+roter.get('/user', authenticateJWT, isValidRole, getUser)
 roter.post('/register/create', authenticateJWT, isAdmin, createUser)
 roter.post('/login', login)
 roter.put('/register/update', authenticateJWT, isAdmin, updateUser)

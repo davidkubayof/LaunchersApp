@@ -14,7 +14,6 @@ export async function getLauncherD(id) {
     return await db.collection('launchers').findOne({ _id: new ObjectId(id) });
 }
 export async function createLauncherD(obj) {
-    // const obj = { name, city, rocketType, latitude, longitude, }
     return await db.collection('launchers').insertOne( obj );
 }
 export async function updateLauncherD(id, obj) {

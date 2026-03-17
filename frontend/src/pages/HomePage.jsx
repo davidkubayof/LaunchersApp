@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getAll } from "../Api/apiLaunchers"
 import { useNavigate } from "react-router"
-import Nav from "../componnet/nav"
+import Nav from "../componnet/Nav"
 
 export default function HomePage() {
     const [leunchers, setLeunchers] = useState([])

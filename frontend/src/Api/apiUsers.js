@@ -7,6 +7,34 @@ export async function loginUser({ username, password }) {
         headers: { "Content-Type": "application/json" }
     })
     if (!res.ok) {
+        console.log(res);
+        return "faild to fetch"
+    }
+    return await res.json()
+}
+export async function getUser() {
+    const token = localStorage.getItem('token')
+    const res = await fetch(url + "/user", {
+        headers: {
+            "authorization": `Bearer ${token}`,
+        }
+    })
+    if (!res.ok) {
+        return "faild to fetch"
+    }
+    return await res.json()
+}
+export async function createUser(objUser) {
+    const token = localStorage.getItem('token')
+    const res = await fetch(url + "/register/create", {
+        method: 'POST',
+        body: JSON.stringify(objUser),
+        headers: {
+            "authorization": `Bearer ${token}`,
+            "Content-Type": "application/json"
+        }
+    })
+    if (!res.ok) {
         return "faild to fetch"
     }
     return await res.json()

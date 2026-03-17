@@ -5,8 +5,8 @@ import { isValidRole } from "../middlwer/IsValidRole.js";
 
 const roter = Router()
 
-roter.get('/launchers',isValidRole, getLaunchers)//
-roter.get('/launchers/:id',isValidRole, getLauncher)//
+roter.get('/launchers',isValidRole, getLaunchers)
+roter.get('/launchers/:id',isValidRole, getLauncher)
 roter.post('/launchers', isIntelligenceOrAdmin, createLauncher)
 roter.put('/launchers/:id', isIntelligenceOrAdmin, updateLauncher)
 roter.delete('/launchers/:id', isIntelligenceOrAdmin, deleteLauncher)
