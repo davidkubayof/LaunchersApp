@@ -1,5 +1,5 @@
 import { useParams } from 'react-router'
-import { getById } from '../Api/apiLaunchers'
+import { deletById, getById } from '../Api/apiLaunchers'
 import { useEffect, useState } from 'react'
 
 export default function LauncherDetailsPage() {
@@ -26,6 +26,7 @@ export default function LauncherDetailsPage() {
             <div>rocketType: {leuncher.rocketType}</div>
             <div>latitude: {leuncher.latitude}</div>
             <div>longitude: {leuncher.longitude}</div>
+            <button onClick={()=>deletById(id)}>delete</button>
         </>
     )
 }
