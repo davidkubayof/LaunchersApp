@@ -6,7 +6,7 @@ export default function LoginPage() {
     const [data, setData] = useState({
         username: "",
         email: "",
-        type_user: "",
+        user_type: "",
         password: ""
     })
     const [massege, setMassege] = useState('')
@@ -29,7 +29,7 @@ export default function LoginPage() {
             <form onSubmit={handleSumbite}>
                 <input type="text" required placeholder="username" onChange={(e) => { setData({ ...data, username: e.target.value }) }} />
                 <input type="email" required placeholder="email" onChange={(e) => { setData({ ...data, email: e.target.value }) }} />
-                <select required onChange={(e) => { setData({ ...data, type_user: e.target.value }) }}>
+                <select required onChange={(e) => { setData({ ...data, user_type: e.target.value }) }}>
                     <option value="">choes one</option>
                     <option value="admin">admin</option>
                     <option value="intelligence">intelligence</option>

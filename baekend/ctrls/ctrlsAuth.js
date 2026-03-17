@@ -1,4 +1,4 @@
-import { createUserD, deleteUserD, findUserD, getUserD, updateUserD } from "../DAL/users.js";
+import { createUserD, deleteUserD, findUserD, getUserD, getUsersD, updateUserD } from "../DAL/users.js";
 import jwt from 'jsonwebtoken'
 
 export async function getUser(req, res) {
@@ -6,8 +6,12 @@ export async function getUser(req, res) {
     if (!id) { return res.status(400).json('The field id is missing.') }
     const user = await getUserD(id)
     console.log(user);
-    
-    res.json( user )
+
+    res.json(user)
+}
+export async function getUsers(req, res) {
+    const users = await getUsersD()
+    res.json(users)
 }
 export async function createUser(req, res) {
     const obj = req.body;
@@ -17,14 +21,17 @@ export async function createUser(req, res) {
 export async function login(req, res) {
     const { username, password } = req.body;
     const user = await findUserD(username, password);
+    
     if (!user) return res.status(401).json({ message: 'Invalid credentials' });
     const payload = {
         id: user._id,
         username: user.username,
-        user_type: user.user_type
+        user_type: user.type_user
     };
+
+    
     const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.json({ message: 'Login successful', token });
+    res.json({ message: 'Login successful', token, user_type: user.type_user });
 }
 export async function updateUser(req, res) {
     const { id } = req.params;

@@ -24,6 +24,18 @@ export async function getUser() {
     }
     return await res.json()
 }
+export async function getUsers() {
+    const token = localStorage.getItem('token')
+    const res = await fetch(url + "/users", {//
+        headers: {
+            "authorization": `Bearer ${token}`,
+        }
+    })
+    if (!res.ok) {
+        return "faild to fetch"
+    }
+    return await res.json()
+}
 export async function createUser(objUser) {
     const token = localStorage.getItem('token')
     const res = await fetch(url + "/register/create", {
@@ -33,6 +45,17 @@ export async function createUser(objUser) {
             "authorization": `Bearer ${token}`,
             "Content-Type": "application/json"
         }
+    })
+    if (!res.ok) {
+        return "faild to fetch"
+    }
+    return await res.json()
+}
+export async function deletById(id) {
+    const token = localStorage.getItem('token')
+    const res = await fetch(url + `/register/delete/${id}`, {
+        method: 'DELETE',
+        headers: { "authorization": `Bearer ${token}` }
     })
     if (!res.ok) {
         return "faild to fetch"

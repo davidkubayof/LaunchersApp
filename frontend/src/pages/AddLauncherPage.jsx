@@ -9,13 +9,15 @@ export default function AddLauncherPage() {
     latitude: "",
     longitude: ""
   })
+
   async function handleSumbite() {
     console.log(await createLeunchers(data))
   }
+ 
   return (
     <>
       <div>AddLauncherPage</div>
-      <Nav/>
+      <Nav />
       <form onSubmit={handleSumbite}>
         <input type="text" required placeholder='name' onChange={(e) => { setData({ ...data, name: e.target.value }) }} />
         <input type="text" required placeholder='city' onChange={(e) => { setData({ ...data, city: e.target.value }) }} />

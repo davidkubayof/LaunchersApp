@@ -15,6 +15,7 @@ export default function LoginPage() {
         const res = await loginUser(data)
         if (res.message === "Login successful") {
             localStorage.setItem('token',res.token)
+            localStorage.setItem('user_type',res.user_type)
             setMassege(res.message)
             setTimeout(() => {
                 navigate("/")

@@ -9,6 +9,9 @@ export async function getUserD(id) {
     }
     return await db.collection('users').findOne({ _id: new ObjectId(id) });
 }
+export async function getUsersD() {
+    return await db.collection('users').find().toArray();
+}
 export async function createUserD(obj) {
     return await db.collection('users').insertOne(obj);
 }
@@ -26,5 +29,5 @@ export async function deleteUserD(id) {
     if (!ObjectId.isValid(id)) {
         throw new Error('Invalid ObjectId format');
     }
-    return await collection('users').deleteOne({ _id: new ObjectId(id) });
+    return await db.collection('users').deleteOne({ _id: new ObjectId(id) });
 }
